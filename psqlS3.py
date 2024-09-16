@@ -52,14 +52,13 @@ def list_tables(engine, schema):
 
 
 # Function to save tables as Parquet files
-def save_tables_as_parquet(engine, tables:str, output_folder: str, schema: str):
+def save_tables_as_parquet(engine, output_folder: str, schema: str):
     """
     Saves specified tables from the database as Parquet files.
 
     Parameters
     ----------
     engine : SQLAlchemy engine object
-    tables : List of table names to save as Parquet files.
     output_folder : The folder to save the Parquet files.
     schema : The schema of the tables to save.
     """
