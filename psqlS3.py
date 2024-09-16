@@ -9,7 +9,7 @@ from sqlalchemy import inspect, MetaData, Table
 
 
 # Function to create a database connection engine
-def create_db_engine(user, password, host, port, db_name):
+def create_db_engine(user: str, password: str, host: str, port: str, db_name: str):
     """
     Creates an SQLAclhemey engine to connect to a PostgreSQL database.
 
@@ -52,7 +52,7 @@ def list_tables(engine, schema):
 
 
 # Function to save tables as Parquet files
-def save_tables_as_parquet(engine, tables, output_folder, schema):
+def save_tables_as_parquet(engine, tables:str, output_folder: str, schema: str):
     """
     Saves specified tables from the database as Parquet files.
 
@@ -65,6 +65,8 @@ def save_tables_as_parquet(engine, tables, output_folder, schema):
     """
     
     os.makedirs(output_folder, exist_ok=True)
+    inspector = sqlalchemy.inspect(engine)
+    tables = inspector.get_table_names(schema=schema)
     for table_name in tables:
         table = Table(table_name, MetaData(), autoload_with=engine, schema=schema)
         df = pd.read_sql(table.select(), con=engine)
