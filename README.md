@@ -1,7 +1,7 @@
 # Code Overview: PostgreSQL connection and S3 Upload of Files
 
 ## Introduction
-This code provides a set of reusable functions, designed to interecat with a PostgreSQL database, convert the database tables to Parquet files, and uploade those Parquet files to an Amazon S3 bucket. These functions are to be integrated into other Python scripts and used in data processing workflows.
+This code provides a set of reusable functions, designed to interact with a PostgreSQL database, convert the database tables to Parquet files, and upload those Parquet files to an Amazon S3 bucket. These functions are to be integrated into other Python scripts and used in data processing workflows.
 
 ## Functions
 
